@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Platformer_shooter.sln"
+    "dotnet.defaultSolution": "GGM_Shooting.sln"
 }
