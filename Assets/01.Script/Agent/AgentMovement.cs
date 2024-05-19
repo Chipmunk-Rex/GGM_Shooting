@@ -19,9 +19,15 @@ public class AgentMovement : MonoBehaviour
     public NotifyValue<bool> isGround = new NotifyValue<bool>();
     protected float _xMove;
     private float _timeInAir;
-    private void Awake()
+    private Agent _owner;
+    public void Initialize(Agent agent)
     {
+        _owner = agent;
         rbCompo = GetComponent<Rigidbody2D>();
+    }
+    public void JumpTo(Vector2 force){
+        SetMovement(force.x);
+        rbCompo.AddForce(force, ForceMode2D.Impulse);
     }
     public void SetMovement(float xMove)
     {

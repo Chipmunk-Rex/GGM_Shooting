@@ -15,6 +15,12 @@ public class Bullet : Projectile, IPoolable
     [SerializeField] private string _PoolName;
     public string PoolName => _PoolName; //Get 람다식 단축
     public GameObject ObjectPrefab => gameObject;
+    private DamageCaster _damageCaster;
+    protected override void Awake()
+    {
+        base.Awake();
+        _damageCaster = transform.Find("DamageCaster").GetComponent<DamageCaster>();
+    }
 
     public override void InitAndFire(Transform firePosTrm, int damage, float knockBackPower)
     {
@@ -33,6 +39,7 @@ public class Bullet : Projectile, IPoolable
 
     private void OnTriggerEnter2D(Collider2D other) {
         if(_isDead) return;
+        _damageCaster.CastDamage(_damage, _knockPower);
         DestroyBullet();
     }
 
