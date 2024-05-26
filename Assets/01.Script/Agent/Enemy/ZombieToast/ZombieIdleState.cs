@@ -17,7 +17,6 @@ public class ZombieIdleState : EnemyState
         base.UpdateState();
         Collider2D player = _enemy.GetPlayerInRange();
         if(player != null){
-            Debug.Log("실행");
             _enemy.targetTrm = player.transform;
             _stateMachine.ChangeState(ZomebieEnum.Chase);
         }

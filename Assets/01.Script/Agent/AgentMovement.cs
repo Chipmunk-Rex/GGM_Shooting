@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,6 +21,9 @@ public class AgentMovement : MonoBehaviour
     protected float _xMove;
     private float _timeInAir;
     private Agent _owner;
+    public float knockbackTime = 0.2f;
+    protected bool _canMove = true;
+    protected Coroutine _kbCoroutine;
     public void Initialize(Agent agent)
     {
         _owner = agent;
@@ -64,13 +68,23 @@ public class AgentMovement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        isGround.Value = CheckGrounded();
-        rbCompo.velocity = new Vector2(_xMove * moveSpeed, rbCompo.velocity.y);
+        CheckGrounded();
         ApplyExtraGravity();
+
+        ApplyXMovement();
     }
+
+    private void ApplyXMovement()
+    {
+        if (_canMove == false) return;
+
+        rbCompo.velocity = new Vector2(_xMove * moveSpeed, rbCompo.velocity.y);
+    }
+
     public bool CheckGrounded()
     {
         Collider2D collider = Physics2D.OverlapBox(_groundCheckerTrm.position, _groundCheckerSize, 0, _whatIsGround);
+        isGround.Value = collider != null;
         return collider;
     }
     private void ApplyExtraGravity()
@@ -78,6 +92,27 @@ public class AgentMovement : MonoBehaviour
         if (_timeInAir > gravityDelay)
             rbCompo.AddForce(new Vector2(0, -extraGravity));
     }
+
+#region Knockback Region
+    public void getKnockback(Vector3 direction, float power){
+        Vector3 difference = direction * power * rbCompo.mass;
+        rbCompo.AddForce(difference, ForceMode2D.Impulse);
+
+        if(_kbCoroutine != null)
+            StopCoroutine(_kbCoroutine);
+        
+        _kbCoroutine = StartCoroutine(KnockbackCoroutine());
+    }
+
+    private IEnumerator KnockbackCoroutine()
+    {
+        _canMove = false;
+        yield return new WaitForSeconds(knockbackTime);
+        rbCompo.velocity = Vector2.zero;
+        _canMove = true;
+    }
+    #endregion
+
 #if UNITY_EDITOR
     private void OnDrawGizmosSelected()
     {

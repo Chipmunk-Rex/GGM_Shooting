@@ -384,3 +384,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gun: {fileID: 3225001890003733308}
+  _impulsePower: 0.3

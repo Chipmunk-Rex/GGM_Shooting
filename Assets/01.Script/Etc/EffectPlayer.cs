@@ -19,7 +19,7 @@ public class EffectPlayer : MonoBehaviour, IPoolable
         _duration = _particle.main.duration;
         _particleDuration = new WaitForSeconds(_duration);
     }
-    public void SetPositionAndRotation(Vector3 position){
+    public void SetPositionAndPlay(Vector3 position){
         transform.position = position;
         _particle.Play();
         StartCoroutine(DelayAndGotoPoolCoroutine());

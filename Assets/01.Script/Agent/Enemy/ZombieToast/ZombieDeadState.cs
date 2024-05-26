@@ -30,6 +30,16 @@ public class ZombieDeadState : EnemyState
 
     private void PlayerExplosion()
     {
+
+        _enemy.FinalDeadEvent?.Invoke();
+    //    EffectPlayer effectPlayer = PoolManager.Instance.Pop("ZombieExplosion") as EffectPlayer;
+    //    effectPlayer.SetPositionAndPlay(_enemy.transform.position);
+
+        IPoolable poolable = _enemy.GetComponent<IPoolable>();
+        if(poolable != null)
+            PoolManager.Instance.Push(poolable);
+        else
+            GameObject.Destroy(_enemy.gameObject);
         
     }
 }

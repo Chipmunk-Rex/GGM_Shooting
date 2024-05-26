@@ -17,7 +17,7 @@ MonoBehaviour:
   spritePosition: {x: 0.8, y: 0, z: 0}
   fireTrmPosition: {x: 0.76, y: 0.16, z: 0}
   damage: 2
-  maxAmmo: 30
+  maxAmmo: 2147483647
   reloadTime: 1
   cooldown: 0.15
   knockBackPower: 0.5

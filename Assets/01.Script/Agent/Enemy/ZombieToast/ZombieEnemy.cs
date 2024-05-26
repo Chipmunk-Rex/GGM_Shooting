@@ -8,9 +8,14 @@ public enum ZomebieEnum{
     Attack,
     Dead
 }
-public class ZombieToast : Enemy
+public class ZombieToast : Enemy, IPoolable
 {
     public EnemyStateMachine stateMachine;
+
+    [SerializeField] private string _poolName = "ZombieEnemy";
+    public string PoolName =>_poolName;
+
+    public GameObject ObjectPrefab => gameObject;
 
     protected override void Awake()
     {
@@ -39,5 +44,16 @@ public class ZombieToast : Enemy
     public override void SetDeadState()
     {
         stateMachine.ChangeState(ZomebieEnum.Dead);
+    }
+
+    public void ResetItem()
+    {
+        CanStateChangeable = true;
+        IsDead = false;
+        targetTrm = null;
+        HealthCompo.ResetHealth();
+        stateMachine.ChangeState(ZomebieEnum.Idle);
+        gameObject.layer = _enemyLayer;
+        
     }
 }

@@ -47,7 +47,7 @@ public class Bullet : Projectile, IPoolable
     {
         _isDead = true;
         EffectPlayer effectPlayer = PoolManager.Instance.Pop("BulletImpact") as EffectPlayer;
-        effectPlayer.SetPositionAndRotation(transform.position);
+        effectPlayer.SetPositionAndPlay(transform.position);
         PoolManager.Instance.Push(this);
     }
 }

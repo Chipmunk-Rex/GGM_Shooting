@@ -16,7 +16,7 @@ public class Health : MonoBehaviour
         ResetHealth();
     }
 
-    private void ResetHealth()
+    public void ResetHealth()
     {
         _currentHealth = _maxHealth;
     }
@@ -26,5 +26,12 @@ public class Health : MonoBehaviour
         if(_currentHealth <= 0){
             OnDeadEvent?.Invoke();
         }
+
+        if(knockbackPower > 0)
+            _owner.MovementCompo.getKnockback(-normal, knockbackPower);
+        else
+            Debug.Log("아잇");
+        if(_currentHealth <= 0)
+            OnDeadEvent?.Invoke();
     }
 }
