@@ -14,7 +14,6 @@ public class DamageCaster : MonoBehaviour
     }
     public bool CastDamage(int damage, float knockbackPower){
         int cnt = Physics2D.OverlapCircle(transform.position, damageRadius, filter, _colliders);
-
         for(int i = 0; i < cnt; i++){
 
             if(_colliders[i].TryGetComponent(out Health health)){

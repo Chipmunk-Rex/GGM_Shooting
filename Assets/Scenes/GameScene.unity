@@ -184,7 +184,7 @@ GameObject:
   - component: {fileID: 93906906}
   - component: {fileID: 93906905}
   - component: {fileID: 93906907}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1166,7 +1166,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1356713795}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GroundChecker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8831,7 +8831,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _groundCheckerTrm: {fileID: 1356713795}
-  moveSpeed: 5
+  moveSpeed: 3
   jumpPower: 7
   extraGravity: 30
   gravityDelay: 0.15
@@ -8859,7 +8859,7 @@ MonoBehaviour:
   contactFilter:
     useTriggers: 0
     useLayerMask: 1
-    useDepth: 1
+    useDepth: 0
     useOutsideDepth: 0
     useNormalAngle: 0
     useOutsideNormalAngle: 0
@@ -8970,7 +8970,7 @@ MonoBehaviour:
   OnDeadEvent:
     m_PersistentCalls:
       m_Calls: []
-  _maxHealth: 80
+  _maxHealth: 30
 --- !u!1001 &1704524369748702088
 PrefabInstance:
   m_ObjectHideFlags: 0

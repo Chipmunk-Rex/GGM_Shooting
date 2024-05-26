@@ -21,6 +21,7 @@ public class ZombieToast : Enemy
         stateMachine.AddState(ZomebieEnum.Chase, new ZombieChaseState(this, stateMachine, "Chase"));
         stateMachine.AddState(ZomebieEnum.Air, new ZombieAirState(this, stateMachine, "Air"));
         stateMachine.AddState(ZomebieEnum.Attack, new ZombieAttackState(this, stateMachine, "Attack"));
+        stateMachine.AddState(ZomebieEnum.Dead, new ZombieDeadState(this, stateMachine, "Dead"));
         //시작상태 설정 , 준비;
         stateMachine.Initailize(ZomebieEnum.Idle, this);
 
@@ -33,5 +34,10 @@ public class ZombieToast : Enemy
     public override void AniamationEndTrigger()
     {
         stateMachine.CurrentState.AniamationEndTrigger();
+    }
+
+    public override void SetDeadState()
+    {
+        stateMachine.ChangeState(ZomebieEnum.Dead);
     }
 }

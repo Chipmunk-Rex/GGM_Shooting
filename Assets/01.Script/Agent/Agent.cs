@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Agent : MonoBehaviour
+public abstract class Agent : MonoBehaviour
 {
     // [Header("Settings")]
     // [SerializeField] private float _extraGravity = 30f, _gravityDelay = 0.15f;
@@ -24,6 +24,7 @@ public class Agent : MonoBehaviour
         HealthCompo = GetComponent<Health>();
         HealthCompo.Initialize(this);
     }
+    public abstract void SetDeadState();
     #region Flip Character
     public bool IsFacingRight()
     {

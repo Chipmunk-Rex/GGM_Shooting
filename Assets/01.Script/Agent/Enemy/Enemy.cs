@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -33,5 +34,11 @@ public abstract class Enemy : Agent
         Gizmos.DrawWireSphere(transform.position, attackRadius);
         Gizmos.color = Color.white;
     }
-    #endif
+
+    public void SetDead(bool value)
+    {
+        IsDead = true;
+        CanStateChangeable = !value;
+    }
+#endif
 }

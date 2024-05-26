@@ -51,6 +51,11 @@ public class Player : Agent
         JumpEvent?.Invoke();
         MovementCompo.Jump();
     }
+
+    public override void SetDeadState()
+    {
+        throw new NotImplementedException();
+    }
     // #region Flip Character
     // public bool IsFacingRight()
     // {

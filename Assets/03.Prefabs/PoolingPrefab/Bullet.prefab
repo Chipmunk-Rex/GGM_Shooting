@@ -140,7 +140,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -796828332, guid: e8adae016c96d4c47811c9c38b02ef09, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.02745098}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -182,7 +182,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 777624848266844262, guid: 315adcca047f53440be6aa96aad28d51, type: 3}
       propertyPath: filter.useDepth
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 777624848266844262, guid: 315adcca047f53440be6aa96aad28d51, type: 3}
       propertyPath: filter.useLayerMask
@@ -194,15 +194,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2624716430649518297, guid: 315adcca047f53440be6aa96aad28d51, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.667572
+      value: 0.26
       objectReference: {fileID: 0}
     - target: {fileID: 2624716430649518297, guid: 315adcca047f53440be6aa96aad28d51, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10.148904
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2624716430649518297, guid: 315adcca047f53440be6aa96aad28d51, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.19603677
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2624716430649518297, guid: 315adcca047f53440be6aa96aad28d51, type: 3}
       propertyPath: m_LocalRotation.w
